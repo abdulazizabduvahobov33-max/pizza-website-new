@@ -4,112 +4,108 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PizzaShop</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="bg-gradient-to-br from-[#2a0f06] to-[#0a0503] text-white font-sans overflow-x-hidden">
 
-  <header class="flex justify-between items-center max-w-7xl mx-auto py-6 px-6">
-    <h1 class="text-4xl font-bold text-orange-500 tracking-wider animate-pulse">PizzaShop</h1>
-    <nav class="flex gap-10 text-white font-semibold">
-      <a href="#" class="hover:text-orange-400 transition-all">Home</a>
-      <a href="#" class="hover:text-orange-400 transition-all">Menu</a>
-      <a href="#" class="hover:text-orange-400 transition-all">Events</a>
-      <a href="#" class="hover:text-orange-400 transition-all">About Us</a>
+  <!-- Header -->
+  <header class="flex justify-between items-center max-w-7xl mx-auto py-6 px-6 relative">
+    <h1 class="text-3xl md:text-4xl font-bold text-orange-500 tracking-wider">PizzaShop</h1>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex gap-10 text-white font-semibold">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About Us</a>
+      <a href="cart.html">Cart 🛒</a>
     </nav>
-    <button class="px-6 py-2 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg hover:scale-105 transition-all">
+
+    <!-- Login -->
+    <button class="hidden md:block px-6 py-2 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg hover:scale-105 transition-all">
       Log in
     </button>
+
+    <!-- Burger -->
+    <div class="md:hidden">
+      <button id="burger" class="space-y-1">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="absolute top-full left-0 w-full bg-[#1a0502] flex flex-col items-center gap-6 py-4 hidden">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About Us</a>
+      <a href="cart.html">Cart 🛒</a>
+
+      <button class="px-6 py-2 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg">
+        Log in
+      </button>
+    </div>
   </header>
 
-  <section class="flex flex-col lg:flex-row justify-between items-center max-w-7xl mx-auto px-6 py-12 gap-60">
-    <div class="flex-1">
-      <h1 class="text-5xl font-bold text-white leading-tight animate-fadeIn">The Fastest <span class="text-orange-400">Pizza Delivery</span></h1>
-      <p class="text-gray-300 mt-4 text-lg animate-fadeIn delay-200">Juicy pizza delivered to your family in 30 minutes. If we’re late – pizza is free!</p>
-      <button class="mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg hover:scale-105 transition-transform animate-fadeIn delay-400">
+  <!-- Hero -->
+  <section class="flex flex-col lg:flex-row items-center max-w-7xl mx-auto px-6 py-12 gap-10">
+    <div class="flex-1 text-center lg:text-left">
+      <h1 class="text-4xl md:text-5xl font-bold">
+        The Fastest <span class="text-orange-400">Pizza Delivery</span>
+      </h1>
+      <p class="text-gray-300 mt-4">
+        Juicy pizza delivered in 30 minutes 🍕
+      </p>
+      <button class="mt-6 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 hover:scale-105 transition">
         Order Now
       </button>
     </div>
-    <div class="flex-1 animate-slideInRight">
-      <img src="./foto/pizza2.png" alt="Delicious Pizza" 
-       style="width: 400px; height: auto;" class="rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500">
-    </div>
-  </section> 
 
-  <section class="flex justify-center gap-4 py-6 flex-wrap max-w-7xl mx-auto px-6">
-    <button class="filter-btn bg-gradient-to-r from-orange-500 to-yellow-400 px-6 py-2 rounded-full shadow-lg">Show All</button>
-    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-2xl shadow hover:bg-[#3a130a] transition-colors">Italian</button>
-    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-2xl shadow hover:bg-[#3a130a] transition-colors">Venecia</button>
-    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-2xl shadow hover:bg-[#3a130a] transition-colors">Meat</button>
-    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-2xl shadow hover:bg-[#3a130a] transition-colors">Cheese</button>
+    <img src="./foto/pizza2.png" class="w-full max-w-md rounded-3xl shadow-2xl">
   </section>
 
-  <section class="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto px-6 pizza-cards">
-    
-    <!-- Italian Pizza -->
-    <div class="pizza-card bg-gradient-to-br from-[#2a0f06] to-[#0a0503] w-64 p-4 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 animate-fadeIn" data-category="italian">
-      <img src="./foto/box_pizza1.png" alt="Italian Pizza" class="w-44 h-44 mx-auto rounded-2xl shadow-lg">
-      <h2 class="text-2xl font-bold text-center mt-3">Italian</h2>
-      <p class="text-gray-400 text-sm mt-2 text-center">Onion, potato, tomato, mushrooms, cheese, olives, meat...</p>
-      <div class="flex justify-center gap-3 mt-3">
-        <span class="border rounded-full w-10 h-10 flex justify-center items-center">22</span>
-        <button class="w-10 h-10 flex justify-center items-center rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg">28</button>
-        <span class="border rounded-full w-10 h-10 flex justify-center items-center">33</span>
+  <!-- Filter -->
+  <section class="flex justify-center gap-4 py-6 flex-wrap">
+    <button class="filter-btn bg-orange-500 px-6 py-2 rounded-full">Show All</button>
+    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-full">Italian</button>
+    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-full">Venecia</button>
+    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-full">Meat</button>
+    <button class="filter-btn bg-[#2a0f06] px-6 py-2 rounded-full">Cheese</button>
+  </section>
+
+  <!-- Cards -->
+  <section class="flex flex-wrap justify-center gap-6 px-6">
+
+    <!-- Pizza -->
+    <div class="pizza-card w-64 bg-[#1a0502] p-4 rounded-2xl" data-category="italian">
+      <img src="./foto/box_pizza1.png" class="w-40 mx-auto">
+      <h2 class="text-center text-xl mt-2">Italian</h2>
+
+      <div class="flex justify-between mt-4">
+        <button class="minus">-</button>
+        <span class="count">1</span>
+        <button class="plus">+</button>
+        <span>$8</span>
       </div>
-      <div class="flex justify-center mt-4">
-        <button class="px-4 py-1 rounded-2xl border text-orange-500 hover:bg-orange-500 hover:text-white transition-all">+ Ingredients</button>
-      </div>
-      <div class="flex justify-between items-center mt-4 quantity-control">
-        <h3 class="text-2xl font-bold">$8.35</h3>
-        <div class="flex items-center gap-3">
-          <button class="minus text-white font-bold text-xl">-</button>
-          <span class="count text-white font-bold">1</span>
-          <button class="plus text-white font-bold text-xl">+</button>
-        </div>
-      </div>
-      <button class="w-full mt-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg hover:scale-105 transition-transform">
-        Order Now
-      </button>
+
+      <button class="w-full mt-4 bg-orange-500 py-2 rounded-full">Order</button>
     </div>
 
-    <!-- Venecia Pizza -->
-    <div class="pizza-card bg-gradient-to-br from-[#2a0f06] to-[#0a0503] w-64 p-4 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 animate-fadeIn" data-category="venecia">
-      <img src="./foto/box_pizza2.png" alt="Venecia Pizza" class="w-44 h-44 mx-auto rounded-2xl shadow-lg">
-      <h2 class="text-2xl font-bold text-center mt-3">Venecia</h2>
-      <p class="text-gray-400 text-sm mt-2 text-center">Tomato, cheese, olives, pepperoni, mushrooms...</p>
-      <div class="flex justify-center gap-3 mt-3">
-        <span class="border rounded-full w-10 h-10 flex justify-center items-center">22</span>
-        <button class="w-10 h-10 flex justify-center items-center rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg">28</button>
-        <span class="border rounded-full w-10 h-10 flex justify-center items-center">33</span>
-      </div>
-      <div class="flex justify-center mt-4">
-        <button class="px-4 py-1 rounded-2xl border text-orange-500 hover:bg-orange-500 hover:text-white transition-all">+ Ingredients</button>
-      </div>
-      <div class="flex justify-between items-center mt-4 quantity-control">
-        <h3 class="text-2xl font-bold">$7.75</h3>
-        <div class="flex items-center gap-3">
-          <button class="minus text-white font-bold text-xl">-</button>
-          <span class="count text-white font-bold">1</span>
-          <button class="plus text-white font-bold text-xl">+</button>
-        </div>
-      </div>
-      <button class="w-full mt-4 py-2 rounded-full bg-gradient-to-r from-orange-500 to-yellow-400 shadow-lg hover:scale-105 transition-transform">
-        Order Now
-      </button>
-    </div>
+    <div class="pizza-card w-64 bg-[#1a0502] p-4 rounded-2xl" data-category="venecia">
+      <img src="./foto/box_pizza2.png" class="w-40 mx-auto">
+      <h2 class="text-center text-xl mt-2">Venecia</h2>
 
-    <!-- Meat Pizza -->
-    <div class="pizza-card bg-gradient-to-br from-[#2a0f06] to-[#0a0503] w-64 p-4 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 animate-fadeIn" data-category="meat">
-      <img src="./foto/box_pizza3.png" alt="Meat Pizza" class="w-44 h-44 mx-auto rounded-2xl shadow-lg">
-      <h2 class="text-2xl font-bold text-center mt-3">Meat</h2>
-      <p class="text-gray-400 text-sm mt-2 text-center">Chicken, beef, cheese, tomato, pepper...</p>
-    </div>
+      <div class="flex justify-between mt-4">
+        <button class="minus">-</button>
+        <span class="count">1</span>
+        <button class="plus">+</button>
+        <span>$7</span>
+      </div>
 
-    <!-- Cheese Pizza -->
-    <div class="pizza-card bg-gradient-to-br from-[#2a0f06] to-[#0a0503] w-64 p-4 rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500 animate-fadeIn" data-category="cheese">
-      <img src="./foto/box_pizza4.png" alt="Cheese Pizza" class="w-44 h-44 mx-auto rounded-2xl shadow-lg">
-      <h2 class="text-2xl font-bold text-center mt-3">Cheese</h2>
-      <p class="text-gray-400 text-sm mt-2 text-center">Mozzarella, cheddar, tomato, olives...</p>
+      <button class="w-full mt-4 bg-orange-500 py-2 rounded-full">Order</button>
     </div>
 
   </section>
