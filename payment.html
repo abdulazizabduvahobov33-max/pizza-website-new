@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0a0503] text-white flex justify-center items-center min-h-screen">
+
+  <div class="bg-[#1a0502] p-6 rounded-2xl w-full max-w-md shadow-2xl">
+
+    <h1 class="text-2xl text-orange-500 mb-6 text-center">Payment 💳</h1>
+
+    <input id="cardNumber" type="text" placeholder="Card Number"
+      class="w-full p-3 mb-3 rounded bg-black">
+
+    <div class="flex gap-3">
+      <input id="expiry" type="text" placeholder="MM/YY"
+        class="w-1/2 p-3 rounded bg-black">
+      <input id="cvv" type="text" placeholder="CVV"
+        class="w-1/2 p-3 rounded bg-black">
+    </div>
+
+    <button onclick="payNow()"
+      class="w-full mt-5 bg-green-500 py-3 rounded text-lg hover:scale-105 transition">
+      Pay Now 💸
+    </button>
+
+    <p id="status" class="text-center mt-4 text-gray-400"></p>
+
+  </div>
+
+  <script src="payment.js"></script>
+
+</body>
+</html>

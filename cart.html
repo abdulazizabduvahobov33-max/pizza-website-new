@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-<h1>Cart 🛒</h1>
+<body class="bg-[#0a0503] text-white p-6">
 
-<div id="cart-items"></div>
-<h2 id="total"></h2>
+  <h1 class="text-3xl mb-6 text-orange-500">🛒 Your Cart</h1>
 
-<script src="script.js"></script>
+  <div id="cart-items" class="space-y-3"></div>
+
+  <h2 id="total" class="text-2xl mt-6"></h2>
+
+  <button onclick="clearCart()" class="mt-6 bg-red-500 px-4 py-2 rounded">
+    Clear Cart
+  </button>
+
+  <a href="checkout.html"  class="inline-block mt-4 bg-green-500 px-6 py-3 rounded">
+          Checkout 💳
+  </a>
+
+  <script>
+    function clearCart() {
+      localStorage.removeItem('cart');
+      location.reload();
+    }
+  </script>
+
+  <script src="script.js"></script>
 
 </body>
 </html>

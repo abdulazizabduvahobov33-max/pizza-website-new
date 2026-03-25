@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#0a0503] text-white p-6">
+
+  <h1 class="text-3xl text-orange-500 mb-6">Checkout 🧾</h1>
+
+  <!-- Форма -->
+  <div class="max-w-md mx-auto space-y-4">
+
+    <input id="name" type="text" placeholder="Your Name"
+      class="w-full p-3 rounded bg-[#1a0502]">
+
+    <input id="phone" type="text" placeholder="Phone Number"
+      class="w-full p-3 rounded bg-[#1a0502]">
+
+    <input id="address" type="text" placeholder="Address"
+      class="w-full p-3 rounded bg-[#1a0502]">
+
+    <button onclick="submitOrder()"
+      class="w-full bg-orange-500 py-3 rounded text-lg">
+      Confirm Order ✅
+    </button>
+
+  </div>
+
+  <script src="checkout.js"></script>
+
+</body>
+</html>

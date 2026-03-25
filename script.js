@@ -43,16 +43,24 @@ document.querySelectorAll('.minus').forEach(btn => {
     if (count > 1) countElem.textContent = count - 1;
   });
 });
+// ДОБАВЛЕНИЕ В КОРЗИНУ
+const orderButtons = document.querySelectorAll('.order-btn');
 
-// ADD TO CART
-document.querySelectorAll('.order-btn').forEach(btn => {
+orderButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const name = btn.dataset.name;
     const price = parseFloat(btn.dataset.price);
 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    cart.push({ name, price });
+    // проверка есть ли уже такой товар
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ name, price, quantity: 1 });
+    }
 
     localStorage.setItem('cart', JSON.stringify(cart));
 
@@ -60,23 +68,61 @@ document.querySelectorAll('.order-btn').forEach(btn => {
   });
 });
 
-// CART PAGE
+
+// ОТРИСОВКА КОРЗИНЫ
 const cartItemsContainer = document.getElementById('cart-items');
 const totalContainer = document.getElementById('total');
 
-if (cartItemsContainer && totalContainer) {
+if (cartItemsContainer) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let total = 0;
 
-  cartItemsContainer.innerHTML = "";
+  function renderCart() {
+    cartItemsContainer.innerHTML = "";
+    let total = 0;
 
-  cart.forEach(item => {
-    const div = document.createElement('div');
-    div.textContent = `${item.name} - $${item.price}`;
-    cartItemsContainer.appendChild(div);
+    cart.forEach((item, index) => {
+      total += item.price * item.quantity;
 
-    total += item.price;
-  });
+      const div = document.createElement('div');
+      div.className = "flex justify-between items-center bg-[#1a0502] p-4 rounded mb-2";
 
-  totalContainer.textContent = "Total: $" + total.toFixed(2);
+      div.innerHTML = `
+        <div>
+          <h2>${item.name}</h2>
+          <p>$${item.price} x ${item.quantity}</p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <button onclick="changeQty(${index}, -1)">-</button>
+          <button onclick="changeQty(${index}, 1)">+</button>
+          <button onclick="removeItem(${index})">❌</button>
+        </div>
+      `;
+
+      cartItemsContainer.appendChild(div);
+    });
+
+    totalContainer.textContent = "Total: $" + total.toFixed(2);
+  }
+
+  // изменить количество
+  window.changeQty = (index, amount) => {
+    cart[index].quantity += amount;
+
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  };
+
+  // удалить товар
+  window.removeItem = (index) => {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+  };
+
+  renderCart();
 }
