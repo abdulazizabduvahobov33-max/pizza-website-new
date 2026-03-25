@@ -1,36 +1,11 @@
-/* Анимации */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+body {
+  font-family: Arial, sans-serif;
 }
 
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
+.pizza-card img {
+  width: 100%;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-.animate-slideInRight {
-  animation: slideInRight 1s ease forwards;
-}
-
-.delay-200 { animation-delay: 0.2s; }
-.delay-400 { animation-delay: 0.4s; }
-
-/* Burger menu active */
-#mobileMenu.show {
-  display: flex;
-}
-
-/* Hover эффекты карточек */
-.pizza-card:hover img {
-  transform: scale(1.05);
-}
-
-/* Кнопки фильтров */
-.filter-btn {
+button {
   cursor: pointer;
 }
